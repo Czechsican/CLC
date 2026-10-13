@@ -1,0 +1,134 @@
+@import url(reset.css);
+
+:root {
+  /* ======================================================= */
+  /* COLOUR — Palette */
+  /* ======================================================= */
+
+  --color-black: #181f1f;
+  --color-white: #fff;
+  --color-white-tint: #e8eff4;
+  --color-blue: #0674b5;
+  --color-blue-light: #529ccb;
+  --color-orange: #e35336;
+  --color-grey-dark: #283232;
+  --color-grey-light: #d6d9d9;
+
+  --color-btn-primary: var(--color-blue);
+  --color-btn-primary-text: var(--color-white);
+  --color-btn-secondary: transparent;
+  --color-btn-secondary-text: var(--color-white);
+  --color-btn-tertiary: var(--color-white);
+  --color-btn-tertiary-text: var(--color-black);
+  --color-btn-dark: var(--color-grey-dark);
+  --color-btn-dark-text: var(--color-white);
+  --color-btn-accent: var(--color-orange);
+  --color-btn-accent-text: var(--color-white);
+  --color-btn-accent-hover: #c94428;
+  --color-btn-accent-hover-text: var(--color-white);
+
+  --color-link: var(--color-white);
+  --color-link-hover: var(--color-orange);
+
+  /* ======================================================= */
+  /* TYPOGRAPHY */
+  /* ======================================================= */
+
+  --font-sans: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  --font-display: Generalsans, Arial, sans-serif;
+
+  /* ======================================================= */
+  /* SPACING */
+  /* ======================================================= */
+
+  --space-xxs: 0.25rem; /*  4px — hairline gaps                 */
+  --space-xs: 0.5rem; /*  8px — tight gaps, nav padding      */
+  --space-sm: 0.75rem; /* 12px — small gaps, caption margin   */
+  --space-md: 1rem; /* 16px — base unit, outer page gutter */
+  --space-lg: 1.5rem; /* 24px — grid gaps, card internals    */
+  --space-xl: 2rem; /* 32px — internal padding, large gaps */
+  --space-2xl: 2.5rem; /* 40px — section sub-spacing          */
+  --space-3xl: 3rem; /* 48px — block / section padding      */
+  --space-4xl: 4rem; /* 64px — large section padding        */
+  --space-5xl: 5rem; /* 80px — hero vertical padding        */
+  --space-6xl: 6rem; /* 96px — feature section padding      */
+  --space-7xl: 7rem; /* 112px — max section vertical rhythm */
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* background: var(--color-white-tint); */
+  overflow: hidden;
+}
+
+#root {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+body > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.6 * 1rem, 4vw + 1rem, 4.2 * 1rem);
+}
+
+ul.checklist {
+  padding: 0;
+}
+
+.iconQuote {
+  width: 1.5em;
+  margin-bottom: var(--space-lg);
+  color: var(--color-orange);
+}
+
+.checklist li {
+  font-family: var(--font-display);
+  font-weight: 400;
+  padding-left: var(--space-md);
+  list-style-type: none;
+  position: relative;
+}
+
+.checklist li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 10px;
+  height: 8px;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.58691 0.960976L3.58691 6.96098C3.53465 7.01342 3.47256 7.05502 3.40419 7.08341C3.33581 7.1118 3.26251 7.12642 3.18848 7.12642C3.11444 7.12642 3.04114 7.1118 2.97277 7.08341C2.90439 7.05502 2.8423 7.01342 2.79004 6.96098L0.165038 4.33598C0.112715 4.28365 0.0712093 4.22154 0.042892 4.15317C0.0145747 4.08481 7.79682e-10 4.01154 0 3.93754C-7.79681e-10 3.86354 0.0145747 3.79027 0.042892 3.72191C0.0712093 3.65354 0.112715 3.59142 0.165038 3.5391C0.217362 3.48678 0.279479 3.44527 0.347843 3.41695C0.416207 3.38864 0.489479 3.37406 0.563476 3.37406C0.637472 3.37406 0.710745 3.38864 0.779109 3.41695C0.847473 3.44527 0.90959 3.48678 0.961913 3.5391L3.18894 5.76613L8.79098 0.165038C8.89665 0.0593659 9.03997 0 9.18941 0C9.33886 0 9.48218 0.0593659 9.58785 0.165038C9.69352 0.27071 9.75289 0.414033 9.75289 0.563476C9.75289 0.712919 9.69352 0.856241 9.58785 0.961913L9.58691 0.960976Z' fill='%231A2222'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.lighter-text {
+  font-family: var(--font-display);
+  font-weight: 300;
+}
+

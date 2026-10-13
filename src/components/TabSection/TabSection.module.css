@@ -1,0 +1,25 @@
+.tabSection {
+  width: 100%;
+  margin-bottom: var(--space-md);
+  padding: 0 var(--space-sm);
+  background-color: var(--color-white);
+}
+
+.tabContainer {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.tabSection article:not(:first-of-type) img {
+  display: none;
+}
+
+/* For medium screens and above */
+@media screen and (min-width: 768px) {
+  
+}
+
+/* For large screens and above */
+@media screen and (min-width: 1000px) {
+}

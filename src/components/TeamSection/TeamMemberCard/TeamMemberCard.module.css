@@ -1,0 +1,54 @@
+.TeamMemberCard {
+  align-self: stretch;
+  width: 100%;
+
+  min-width: 100%;
+  margin: 0 var(--space-md) 0 0;  
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 1;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.imageContainer img {
+  background-color: grey;
+  position: absolute;
+  aspect-ratio: 1;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: grayscale();
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.position {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 0.75rem;
+}
+
+/* For medium screens and above */
+@media screen and (min-width: 768px) {
+  .TeamMemberCard {
+    min-width: 30vw;
+    margin: 0 var(--space-md) 0 0;    
+  }
+}
+
+/* For large screens and above */
+@media screen and (min-width: 1000px) {
+  .TeamMemberCard {
+    min-width: 22vw;
+  }
+}

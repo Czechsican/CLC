@@ -1,0 +1,43 @@
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.skillsContent {
+  margin-bottom: var(--space-xl);
+}
+
+.skillsContent .title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: clamp(1.5rem, 2.3rem, 3rem);
+  font-size: clamp(1.5rem, 2rem, 2.8rem);
+}
+
+/* For medium screens and above */
+@media screen and (min-width: 768px) {
+  .skillsSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    align-items: start;
+  }
+
+  .skillsContent {
+    top: 0;
+    position: sticky;
+    background-color: var(--color-blue);
+  }
+
+  .skillCardContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* For large screens and above */
+@media screen and (min-width: 1000px) {
+  .skillsSection {
+    gap: var(--space-xl);
+  }
+}

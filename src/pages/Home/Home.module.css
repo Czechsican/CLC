@@ -1,0 +1,139 @@
+.hero {
+  background-color: var(--color-grey-dark);
+  color: var(--color-white);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  margin: 0;
+  padding: var(--space-4xl) 0 var(--space-md) var(--space-sm);
+}
+
+.hero h1 span {
+  color: var(--color-orange);
+}
+
+.heroMiddle {
+  padding: var(--space-xs);
+  background-color: var(--color-white);
+}
+
+.heroMiddle > div {
+  border-radius: var(--space-xs);
+}
+
+.heroImgContainer {
+  overflow: hidden;
+  margin-bottom: var(--space-xs);
+}
+
+.heroImgContainer img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.heroMiddleCopy {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-lg);
+}
+
+.ctaContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ctaContainer button:first-of-type {
+  margin-right: var(--space-xs);
+}
+
+.heroBottom {
+  background-color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.whatWeDo {
+  background-color: var(--color-white);
+  padding: var(--space-lg) 0;
+}
+
+.SkillsSection {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: var(--space-lg) 0;
+  margin-bottom: var(--space-xs);
+}
+
+.TestimonialSection {
+  font-family: var(--font-display);
+}
+
+.assessments {
+  padding: var(--space-3xl) var(--space-sm);
+}
+
+.assessmentBody .title {
+  font-weight: 700;
+  font-size: 2.1rem;
+  line-height: 2.2rem;
+  /* font-size: clamp(2.1rem, ); */
+}
+
+.teamSection {
+  background-color: var(--color-orange);
+  padding: var(--space-2xl) var(--space-md);
+}
+
+/* For medium screens and above */
+@media screen and (min-width: 768px) {
+  .hero h1 {
+    padding: var(--space-5xl) 0 var(--space-lg) var(--space-md);
+  }
+
+  .heroImgContainer {
+    margin-bottom: 0;
+  }
+
+  .heroMiddleCopy {
+    padding: var(--space-lg);
+  }
+
+  .whatWeDo,
+  .SkillsSection {
+    padding: var(--space-lg);
+  }
+
+  .SkillsSection {
+    padding: var(--space-4xl) var(--space-lg);
+  }
+
+  .assessments {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-2xl);
+  }
+
+  .assessmentBody {
+    padding: 0 var(--space-lg);
+  }
+}
+
+/* For large screens and above */
+@media screen and (min-width: 1000px) {
+  .hero h1 {
+    padding: var(--space-6xl) 0 var(--space-4xl) var(--space-3xl);
+  }
+
+  .SkillsSection {
+    padding: var(--space-5xl) var(--space-lg);
+  }
+
+  .assessments {
+    min-height: 80vh;
+  }
+
+}

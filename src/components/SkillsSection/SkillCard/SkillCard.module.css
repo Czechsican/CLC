@@ -1,0 +1,37 @@
+.skillCard {
+  background-color: var(--color-blue-light);
+  color: var(--color-grey-dark);
+  border-radius: var(--space-xs);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-display);
+}
+
+.skillCard .icon {
+  display: inline-block;
+  padding: var(--space-md);
+  border-radius: var(--space-xl);
+  background-color: var(--color-grey-dark);
+  margin-bottom: var(--space-2xl);
+}
+
+.skillCard h3 {
+  font-size: 1.3rem;
+}
+
+.skillCard p {
+  margin-bottom: 0;
+}
+
+
+/* For medium screens and above */
+@media screen and (min-width: 768px) {
+  .skillCard {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* For large screens and above */
+@media screen and (min-width: 1000px) {
+}

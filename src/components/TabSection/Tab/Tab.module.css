@@ -1,0 +1,28 @@
+.tab {
+  color: var(--color-grey-dark);
+  padding: var(--space-sm) 0;
+  flex-grow: 1;
+  border-bottom: 2px solid var(--color-grey-light);
+  opacity: .6;
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+.tab:hover {
+  opacity: 1;
+  color: var(--color-grey-dark);
+}
+
+.tab.active{
+  opacity: 1;
+  border-color: var(--color-black);
+  color: var(--color-grey-dark);
+}
+
+.tab input {
+  appearance: none
+}
+

@@ -1,4 +1,4 @@
-import type { ServicesIntro, TabInfo, TabItemData } from "../types";
+import type { ServicesIntro, TabItemData } from "../types";
 
 const cdn = "https://cdn.prod.website-files.com/6ab444cd6bd580f36ff0c23c";
 
@@ -8,15 +8,9 @@ export const servicesIntro: ServicesIntro = {
   body: "Coaching, team development, 360 assessments, and speaking. Each service is effective on its own. Together, they compound — and that's intentional.",
 };
 
-export const tabInfo: TabInfo[] = [
-  { value: "coaching" },
-  { value: "courses" },
-  { value: "360 Assessments" },
-  { value: "speaking" },
-];
-
 export const tabItems: TabItemData[] = [
   {
+    id: "coaching",
     heading: "coaching",
     blurb:
       "Coaches who take an active role — closer to a personal trainer than a conversation partner. We push, challenge, and hold leaders accountable on both how they think and what they do, while building a deep and trusting relationship.",
@@ -29,6 +23,7 @@ export const tabItems: TabItemData[] = [
     ctaText: "Explore Coaching",
   },
   {
+    id: "courses",
     heading: "courses",
     blurb:
       "Corporate training built around a small number of areas we know well — not a sprawling catalogue. Practical skills a team can put to use right away.",
@@ -41,6 +36,7 @@ export const tabItems: TabItemData[] = [
     ctaText: "Explore Courses & Training",
   },
   {
+    id: "assessments",
     heading: "360 Assessments",
     blurb:
       "A process that goes deeper than most — reaching peers, direct reports, and the people a leader works with every day. Every 360 opens more doors than it starts with.",
@@ -53,6 +49,7 @@ export const tabItems: TabItemData[] = [
     ctaText: "Explore 360 Assessments",
   },
   {
+    id: "speaking",
     heading: "speaking",
     blurb:
       "Cadence coaches speak at events, offsites, and team sessions — on the same topics we work on with clients every day. Real perspective, not a rehearsed keynote.",

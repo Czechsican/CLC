@@ -1,9 +1,6 @@
 import Button from "../../Button/";
-import useMediaQuery from '../../../Utils/useMediaQuery';
 import styles from "./TabItem.module.css";
 import type { TabItemData } from "../../../types";
-
-const mobileMax = "(max-width: 767px)";
 
 const TabItem = ({
   heading,
@@ -11,49 +8,35 @@ const TabItem = ({
   image,
   listItems,
   ctaText,
-}: TabItemData) => {
-
-  const isMobile = (useMediaQuery(mobileMax));
-
-  const mobileLayout = (
-    <div className={styles.tab}>
-      <img className={styles.tabImage} src={image} />
-      <h3>{heading}</h3>
-      <p>{blurb}</p>
-      <ul role="list" className="checklist">
-        {listItems?.map((bullets) => {
-          return <li key={bullets}>{bullets}</li>;
-        })}
-      </ul>
-      <div>
-        <Button btnText={ctaText} />
-      </div>
-    </div>
-  );
-
-  const desktopLayout = (
-    <div className={styles.tab}>
-      <div className={styles.desktop}>
-        <h3>{heading}</h3>
-        <p>{blurb}</p>
-        <ul role="list" className="checklist">
-          {listItems?.map((bullets) => {
-            return <li key={bullets}>{bullets}</li>;
-          })}
-        </ul>
-        <div>
-          <Button btnText={ctaText} />
-        </div>
-      </div>
-      <div>
-        <img className={styles.tabImage} src={image} />
-      </div>
-    </div>
-  );
-
+  hideImageOnMobile = false,
+}: TabItemData & { hideImageOnMobile?: boolean }) => {
+  // CSS puts the image on top on mobile (hidden if hideImageOnMobile) and in the right-hand column on desktop.
   return (
     <article className={styles.tabItem}>
-      {isMobile ? mobileLayout : desktopLayout}
+      <div className={styles.layout}>
+        {/* Decorative: the heading beside it says what it is. Lazy + fixed size avoids layout shift,
+            and display:none images (mobile, inactive tabs) are never fetched. */}
+        <img
+          className={`${styles.image} ${hideImageOnMobile ? styles.hideOnMobile : ''}`}
+          src={image}
+          alt=""
+          width={800}
+          height={600}
+          loading="lazy"
+        />
+        <div className={styles.content}>
+          <h3>{heading}</h3>
+          <p>{blurb}</p>
+          <ul role="list" className="checklist">
+            {listItems?.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+          <div>
+            <Button btnText={ctaText} />
+          </div>
+        </div>
+      </div>
     </article>
   );
 };

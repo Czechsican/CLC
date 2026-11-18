@@ -5,21 +5,30 @@
   background-color: var(--color-white);
 }
 
+/* Mobile: no tab bar, every item is shown stacked */
 .tabContainer {
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
+  display: none;
 }
 
-.tabSection article:not(:first-of-type) img {
-  display: none;
+/* Mobile: divider between stacked items */
+.panel:not(:last-child) {
+  border-bottom: 1px solid var(--color-grey-light);
 }
 
 /* For medium screens and above */
 @media screen and (min-width: 768px) {
-  
-}
+  .tabContainer {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+  }
 
-/* For large screens and above */
-@media screen and (min-width: 1000px) {
+  /* Only the active panel is shown (display: none also hides it from assistive tech) */
+  .panel:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  .panel[data-active="false"] {
+    display: none;
+  }
 }

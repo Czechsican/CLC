@@ -1,83 +1,72 @@
 import { useState } from "react";
 import type { KeyboardEvent } from "react";
-import useMediaQuery from "../../Utils/useMediaQuery";
 import Tab from "./Tab/";
 import TabItem from "./TabItem/";
+import { tabDomId, panelDomId } from "./tabIds";
 import styles from "./TabSection.module.css";
-import { tabInfo, tabItems } from "../../content";
-
-const mobileMax = "(max-width: 767px)";
-
-const slug = (value: string) => value.trim().toLowerCase().replace(/\s+/g, "-");
-const tabId = (value: string) => `tab-${slug(value)}`;
-const panelId = (value: string) => `tabpanel-${slug(value)}`;
+import { tabItems } from "../../content";
 
 const TabSection = () => {
-  const [activeTab, setActiveTab] = useState("coaching");
-  const isMobile = useMediaQuery(mobileMax);
+  const [activeId, setActiveId] = useState(tabItems[0].id);
 
   // WAI-ARIA tabs pattern: arrows/Home/End move between tabs and activate them
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    const current = tabInfo.findIndex((t) => t.value === activeTab);
+    const current = tabItems.findIndex((t) => t.id === activeId);
     let next: number;
     switch (e.key) {
       case "ArrowRight":
-        next = (current + 1) % tabInfo.length;
+        next = (current + 1) % tabItems.length;
         break;
       case "ArrowLeft":
-        next = (current - 1 + tabInfo.length) % tabInfo.length;
+        next = (current - 1 + tabItems.length) % tabItems.length;
         break;
       case "Home":
         next = 0;
         break;
       case "End":
-        next = tabInfo.length - 1;
+        next = tabItems.length - 1;
         break;
       default:
         return;
     }
     e.preventDefault();
-    setActiveTab(tabInfo[next].value);
-    document.getElementById(tabId(tabInfo[next].value))?.focus();
+    const nextId = tabItems[next].id;
+    setActiveId(nextId);
+    document.getElementById(tabDomId(nextId))?.focus();
   };
 
+  // Every item is always rendered. CSS decides what's visible: below 768px the
+  // tab bar is hidden and all items stack; above it only the active panel shows.
   return (
     <section className={styles.tabSection}>
-      {!isMobile && (
+      <div
+        className={styles.tabContainer}
+        role="tablist"
+        aria-label="Services"
+        onKeyDown={handleKeyDown}
+      >
+        {tabItems.map((item) => (
+          <Tab
+            key={item.id}
+            id={item.id}
+            label={item.heading}
+            active={activeId === item.id}
+            setActive={setActiveId}
+          />
+        ))}
+      </div>
+      {tabItems.map((item, i) => (
         <div
-          className={styles.tabContainer}
-          role="tablist"
-          aria-label="Services"
-          onKeyDown={handleKeyDown}
+          key={item.id}
+          className={styles.panel}
+          role="tabpanel"
+          id={panelDomId(item.id)}
+          aria-labelledby={tabDomId(item.id)}
+          data-active={activeId === item.id}
         >
-          {tabInfo?.map((tab) => {
-            return (
-              <Tab
-                key={tab.value}
-                value={tab.value}
-                id={tabId(tab.value)}
-                panelId={panelId(tab.value)}
-                active={activeTab === tab.value}
-                setActive={setActiveTab}
-              />
-            );
-          })}
+          <TabItem {...item} hideImageOnMobile={i !== 0} />
         </div>
-      )}
-      {isMobile
-        ? tabItems?.map((tab) => <TabItem key={tab.heading} {...tab} />)
-        : tabItems
-            ?.filter((tab) => tab.heading === activeTab)
-            ?.map((tab) => (
-              <div
-                key={tab.heading}
-                role="tabpanel"
-                id={panelId(tab.heading)}
-                aria-labelledby={tabId(tab.heading)}
-              >
-                <TabItem {...tab} />
-              </div>
-            ))}
+      ))}
     </section>
   );
 };

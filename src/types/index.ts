@@ -34,11 +34,8 @@ export interface SkillsSectionProps {
   skillCardData: SkillCardData[];
 }
 
-export interface TabInfo {
-  value: string;
-}
-
 export interface TabItemData {
+  id: string;
   heading: string;
   blurb: string;
   listItems: string[];
@@ -48,10 +45,9 @@ export interface TabItemData {
 }
 
 export interface TabProps {
-  value: string;
   id: string;
-  panelId: string;
-  setActive: (value: string) => void;
+  label: string;
+  setActive: (id: string) => void;
   active?: boolean;
 }
 

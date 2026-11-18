@@ -49,6 +49,8 @@ export interface TabItemData {
 
 export interface TabProps {
   value: string;
+  id: string;
+  panelId: string;
   setActive: (value: string) => void;
   active?: boolean;
 }

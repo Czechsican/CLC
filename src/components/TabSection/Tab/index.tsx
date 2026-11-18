@@ -1,19 +1,21 @@
 import styles from './Tab.module.css';
 import type { TabProps } from '../../../types';
 
-const Tab = ({value, setActive, active = false}: TabProps) => {
-
-  const tabStyle = active ? `${styles.tab} ${styles.active}` : `${styles.tab}`;
-
-  const handleSetActive = () => {
-    return setActive(value)
-  }
-
+const Tab = ({value, id, panelId, setActive, active = false}: TabProps) => {
   return (
-    <label className={tabStyle}>
-      <input type="radio" name="item" value={value} onClick={handleSetActive}></input>
+    <button
+      type="button"
+      role="tab"
+      id={id}
+      aria-selected={active}
+      aria-controls={panelId}
+      // Roving tabindex: only the active tab is in the tab order, arrows move between tabs
+      tabIndex={active ? 0 : -1}
+      className={active ? `${styles.tab} ${styles.active}` : styles.tab}
+      onClick={() => setActive(value)}
+    >
       {value}
-    </label>
+    </button>
   );
 };
 

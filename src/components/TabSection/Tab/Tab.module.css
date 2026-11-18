@@ -1,4 +1,7 @@
 .tab {
+  background: none;
+  border: 0;
+  cursor: pointer;
   color: var(--color-grey-dark);
   padding: var(--space-sm) 0;
   flex-grow: 1;
@@ -22,7 +25,9 @@
   color: var(--color-grey-dark);
 }
 
-.tab input {
-  appearance: none
+.tab:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--color-black);
+  outline-offset: -2px;
 }
 

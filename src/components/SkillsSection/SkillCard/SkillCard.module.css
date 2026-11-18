@@ -29,6 +29,11 @@
   .skillCard {
     padding: var(--space-lg);
     margin-bottom: var(--space-md);
+    transition: background-color 0.2s ease;
+  }
+
+  .skillCard.active {
+    background-color: #fff;
   }
 }
 
